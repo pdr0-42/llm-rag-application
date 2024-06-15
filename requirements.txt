@@ -1,0 +1,14 @@
+# requirements.txt
+
+# Specific versions of LangChain and related libraries
+langchain==0.2.3
+langchain_google_genai==1.0.6
+langchain_openai==0.1.8
+langchain_experimental==0.0.61
+llamaapi==0.1.36
+
+# OpenAI library
+openai==0.27.10
+
+# System-specific packages
+python_version == "3.11.9"
