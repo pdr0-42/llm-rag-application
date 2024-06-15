@@ -41,7 +41,11 @@ class OpenAIConnector(LLMConnector):
     Connector for OpenAI's LLM.
     """
     def connect(self) -> ChatOpenAI:
-        """Connect to OpenAI LLM."""
+        """Connect to OpenAI LLM.
+        
+        Returns:
+            ChatOpenAI: An instance of connection to OpenAI
+        """
         return ChatOpenAI(
             model=self.model,
             temperature=self.temperature,
@@ -54,7 +58,11 @@ class GeminiConnector(LLMConnector):
     Connector for Google's Gemini LLM.
     """
     def connect(self) -> ChatGoogleGenerativeAI:
-        """Connect to Google Gemini LLM."""
+        """connect to Google Gemini LLM.
+        
+        Returns:
+            ChatGoogleGenerativeAI: An instance of connection to Google Gemini
+        """
         return ChatGoogleGenerativeAI(
             model=self.model,
             google_api_key=self.api_key,
@@ -64,10 +72,14 @@ class GeminiConnector(LLMConnector):
 
 class LlamaConnector(LLMConnector):
     """
-    Connector for Meta's Llama LLM.
+    Class to connect to Llama API.
     """
     def connect(self) -> ChatLlamaAPI:
-        """Connect to Meta Llama LLM."""
+        """Connect to Meta Llama LLM.
+        
+        Returns:
+            ChatLlamaAPI: An instance of connection to Llama API
+        """
         llama = LlamaAPI(self.api_key)
         return ChatLlamaAPI(client=llama)
 
@@ -102,4 +114,4 @@ class LLMFactory:
         if not connector_class:
             raise ValueError(f"Unknown LLM type: {llm_type}")
         return connector_class(api_key, model, temperature)
-    
+
