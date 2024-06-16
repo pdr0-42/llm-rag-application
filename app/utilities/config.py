@@ -1,22 +1,26 @@
 import os
 
-class ConfigClass():
+class ConfigClass:
     """Class to import secrets values"""
 
     @property
     def openai_api_key(self) -> None:
         """Import OpenAI API key"""
-        os.getenv("OPENAI_API_KEY")
+        api_key = os.getenv("OPENAI_API_KEY")
+        return api_key
 
     @property
-    def gemini_api_key(self) -> None:
-        """Import Google Gemini API Key"""
-        os.getenv("GEMINI_API_KEY")
+    def openai_model(self) -> None:
+        """Import OpenAI model"""
+        llm = os.getenv("OPENAI_MODEL")
+        return llm
 
     @property
-    def llama_api_key(self) -> None:
-        """Import Meta Llama API Key"""
-        os.getenv("LLAMA_API_KEY")
+    def openai_vector_store(self) -> None:
+        """Import """
+        vector_store = os.getenv("OPENAI_VECTOR_STORE_ID")
+        return vector_store
+
 
 
 config = ConfigClass()
